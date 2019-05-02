@@ -33,7 +33,7 @@ import visualization_utils as vis_util
 #
 # opt = parser.parse_args()
 
-# What model to download.
+# What model to download. KEEP IN MIND ssd_mobilenet_v1_coco_2018_01_28 is fastest model but low accuracy
 MODEL_NAME = 'ssd_mobilenet_v1_coco_2018_01_28'
 # MODEL_NAME = 'faster_rcnn_nas_lowproposals_coco_2017_11_08'
 #MODEL_NAME = 'faster_rcnn_resnet50_coco_2018_01_28'
