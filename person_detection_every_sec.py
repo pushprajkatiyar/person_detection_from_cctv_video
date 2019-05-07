@@ -124,7 +124,19 @@ with detection_graph.as_default():
                     category_index,
                     use_normalized_coordinates=True,
                     line_thickness=8)
+                #creating annotation array which can be sent to API for further operations
+                annotations = {}
+                annotations['class_annotations'], count = (
+                    class_utils.get_class(np.squeeze(classes).astype(np.int32),
+                                          category_index, np.squeeze(boxes),
+                                          np.squeeze(scores)))
+                annotations['person_count'] = count
+                print(json.dumps(annotations))
+                #writting to json file for now, this block will contain API/DB code to handle data.
+                with open('annotation_'  + str(second_completed) + '.json', 'w') as file:
+                    json.dump(annotations, file)
 
+                #show annotated image on desktop
                 cv2.imshow('object detection', image_np)
             if cv2.waitKey(1) & 0xFF == ord('q'):
                 break
