@@ -36,7 +36,8 @@ import visualization_utils as vis_util
 # What model to download. KEEP IN MIND ssd_mobilenet_v1_coco_2018_01_28 is fastest model but low accuracy
 MODEL_NAME = 'ssd_mobilenet_v1_coco_2018_01_28'
 # MODEL_NAME = 'faster_rcnn_nas_lowproposals_coco_2017_11_08'
-#MODEL_NAME = 'faster_rcnn_resnet50_coco_2018_01_28'
+# MODEL_NAME = 'faster_rcnn_resnet50_coco_2018_01_28'
+#MODEL_NAME = 'faster_rcnn_resnet50_lowproposals_coco_2018_01_28'
 MODEL_FILE = MODEL_NAME + '.tar.gz'
 DOWNLOAD_BASE = 'http://download.tensorflow.org/models/object_detection/'
 
@@ -82,7 +83,7 @@ def load_image_into_numpy_array(image):
 
 # start providing video
 # you can use live CCTV video URL in place of "test_video.mp4"
-cap = cv2.VideoCapture('test_video.mp4')
+cap = cv2.VideoCapture('cctv.mp4')
 #get framerate of given video
 frame_rate = int(cap.get(cv2.CAP_PROP_FPS))
 print('>>>>>>>>>FRAME RATE>>>>>>>' + str(frame_rate))
@@ -133,8 +134,8 @@ with detection_graph.as_default():
                 annotations['person_count'] = count
                 print(json.dumps(annotations))
                 #writting to json file for now, this block will contain API/DB code to handle data.
-                with open('annotation_'  + str(second_completed) + '.json', 'w') as file:
-                    json.dump(annotations, file)
+                # with open('annotation_'  + str(second_completed) + '.json', 'w') as file:
+                #     json.dump(annotations, file)
 
                 #show annotated image on desktop
                 cv2.imshow('object detection', image_np)

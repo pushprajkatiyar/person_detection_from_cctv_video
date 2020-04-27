@@ -38,11 +38,6 @@ If you want to test out the implementation then you can use the person_detection
 python person_detection_every_sec.py
 ```
 
-To run the server<br/>
-```
-python server.py
-```
-
 ### Instruction to plot bounding boxes
 As per the original implementation of the tensorflow object detection API, the bounding boxes are normalised. To get the original dimensions you need to do the following.
 

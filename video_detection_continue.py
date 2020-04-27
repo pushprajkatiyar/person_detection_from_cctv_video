@@ -48,7 +48,7 @@ PATH_TO_CKPT = MODEL_NAME + '/frozen_inference_graph.pb'
 PATH_TO_LABELS = 'utils/person_label_map.pbtxt'
 
 NUM_CLASSES = 90
-cap = cv2.VideoCapture('flipkartad.mp4')
+cap = cv2.VideoCapture(0)
 #cap = cv2.VideoCapture('http://devimages.apple.com/iphone/samples/bipbop/bipbopall.m3u8')
 # checking if file exist or not and if yes then downloading specified model
 if not os.path.exists(MODEL_FILE):
